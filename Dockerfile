@@ -30,4 +30,4 @@ RUN cp -R /tmp/DevOps-Course-Starter/* /srv/www
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 WORKDIR /srv/www/todo_app
-ENTRYPOINT ["/srv/www/todo_app/flaskwatch.sh"]
+ENTRYPOINT ["/srv/www/todo_app/startflask.sh"]
