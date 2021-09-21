@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        </head>
+        <body style="background-color:whitesmoke">
+            <h1 style="background-color: palegreen; text-align: center;">Mark's To Do List</h1>
+            <dvi style="background-color: paleturquoise;">
+            <form style="text-align: center; "action="/sortby" method="POST">
+                <label for="sortby">View By:</label>
+                <select id="sortby" name="sortby">
+                    <option value="all">All</option>
+                    <option value="NotStarted">Not Started</option>
+                    <option value="WorkinProgress">Work in Progress</option>
+                    <option value="Completed">Completed</option>
+                    
+                    
+                </select>
+                <input type="submit" value="Submit">
+                </form>
+
+
+              </form></div>
+        <ul> {% for objects in myobjects%}
+        
+        <table style="width:90%; border: solid">            
+            <tr>
+                <th style="background-color:palegreen">Task</th>
+                <th style="background-color:palegreen">Description</th>
+                <th style="background-color:palegreen">Current List</th>
+            </tr>
+            <tr style="text-align: center"> 
+                <td><p2 style="font-size:100%;background-color: rgb(146, 37, 168);color:white ;text-align: center">{{ objects[0] }}</p2></td>
+                <td><p2 style="font-size:100%;background-color: rgb(185, 77, 77);color:white; text-align:center">{{ objects[2] }}</p2></td>
+                <td><p2 style="font-size:100%;background-color: rgb(185, 42, 154);color:white; text-align:center">{{ objects[3] }}</p2></td>
+            </tr>
+            <tr><td>
+                <div style="background-color:white"><form action=/completed/{{ objects[1] }}>
+                    <input style="background-color: lawngreen" type="submit" value="Mark Completed" />
+                </form>
+                <form action=/doing/{{ objects[1] }}>
+                    <input style="background-color:orange" type=submit value="Set to Work In Progress" />
+                </form>
+                <form action=/delete/{{ objects[1] }}>
+                    <input style="background-color:lightcoral" type=submit value="Remove card"/>
+                </form></div></td></tr>
+        </table>
+        {% endfor %}
+        </ul>
+        <div><p1 style="text-align:left; font-size: 50%">New Task</p1>
+            <form style="text-align:center; width:30%; border:solid; background-color:paleturquoise" action="/addtask" method="POST">
+                
+                <label>Task name:</label><br>
+                <input type="text" name="addTo"><br>
+                <label>Task Description:</label><br>
+                <input type="text" name="description"><br>
+              <Button type="submit">Submit Task</button>
+            </form>
+            
+        </div>
+        
+    
+    </body>
+</html>
