@@ -3,6 +3,7 @@ service:
 before_install:
    - docker build . -t todo-app:test 
    - docker run --name travisImage -d -p 5000:5000 -e key -e token --mount type=bind,source=$(pwd)/,target=/srv/www todo-app:test 
+   - sleep 20
    - docker ps -a
 
 script:  
