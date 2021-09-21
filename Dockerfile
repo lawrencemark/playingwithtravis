@@ -20,5 +20,5 @@ RUN  wget --no-verbose -O /tmp/chromedriver_linux64.zip "https://chromedriver.st
 && unzip /tmp/chromedriver_linux64.zip -d /usr/bin \
   && rm /tmp/chromedriver_linux64.zip \
   && chmod 755 /usr/bin/chromedriver
-WORKDIR=/srv/www/todo_app
+WORKDIR /srv/www/todo_app
 ENTRYPOINT ["flaskrun.sh"]
