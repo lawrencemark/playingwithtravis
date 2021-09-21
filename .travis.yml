@@ -1,2 +1,3 @@
 before_install:
+  - cd $TRAVIS_BUILD_DIR
   - ls -R 
