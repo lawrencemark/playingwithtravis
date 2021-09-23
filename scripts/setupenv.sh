@@ -19,7 +19,8 @@ then
 elif [[ $APPLICATIONTYPE == TRAVISCI ]]
 then
     poetry install && poetry add pytest && poetry add watchdog
-    poetry run flask run -h 0.0.0.0
+    bg poetry run flask run -h 0.0.0.0 >> $APPDIR/logs/flask.log
+    pytest
 else
     echo "I'm not sure what I'm supposed to be running..."
 fi

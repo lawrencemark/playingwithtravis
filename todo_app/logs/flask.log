@@ -27,3 +27,21 @@ The command "flask" is not defined.
 172.17.0.1 - - [23/Sep/2021 16:46:20] "GET / HTTP/1.1" 200 -
 172.17.0.1 - - [23/Sep/2021 16:46:22] "[32mGET /delete/FRauQmc6 HTTP/1.1[0m" 302 -
 172.17.0.1 - - [23/Sep/2021 16:46:23] "GET / HTTP/1.1" 200 -
+ * Serving Flask app "/srv/www/todo_app/app.py" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
+ * Restarting with watchdog (inotify)
+ * Debugger is active!
+ * Debugger PIN: 801-746-407
+ * Serving Flask app "/srv/www/todo_app/app.py" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
+ * Restarting with watchdog (inotify)
+ * Debugger is active!
+ * Debugger PIN: 137-594-100
