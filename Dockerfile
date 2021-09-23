@@ -17,34 +17,6 @@ ENV PATH="/root/.poetry/bin/:/srv/www/.venv/bin:/srv/www/todo_app:${PATH}"
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 
-
-
-FROM base AS production
-#PRODUCTION RELEASE WITH MINIMAL CONFIGURATION
-RUN mkdir /srv/www
-WORKDIR /srv/www
-COPY ./poetry.toml .
-COPY ./pyproject.toml .
-COPY ./scripts ./scripts
-COPY ./todo_app ./todo_app
-#RUNNER SCRIPT
-ENV APPLICATIONTYPE=PRODUCTION
-WORKDIR /srv/www/
-RUN poetry install
-ENTRYPOINT [ "/srv/www/scripts/setupenv.sh" ]
-
-
-FROM base as development
-#LOCAL DEVELEOPMENT RELEASE WITH SIMPLE WERKZEUG(TOOL) WEBSERVER
-RUN apt-get update && apt-get install -qqy nano
-#RUNNER SCRIPT
-ENV APPLICATIONTYPE=DEVELOPMENT
-WORKDIR /srv/www/
-ENTRYPOINT [ "/srv/www/scripts/setupenv.sh" ]
-
-
-
-FROM base AS test
 WORKDIR /tmp
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
