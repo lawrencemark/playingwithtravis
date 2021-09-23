@@ -45,6 +45,9 @@ ENTRYPOINT [ "/srv/www/scripts/setupenv.sh" ]
 
 
 FROM base AS test
+WORKDIR /tmp
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
 #INSTALL CHROME AND DRIVER - SPECIFIC VERSION SET TO 93.0.4577.15
 RUN apt-get update && apt-get install git 
 RUN apt-get update -qqy && apt-get install -qqy wget gnupg unzip
@@ -58,7 +61,7 @@ RUN  wget --no-verbose -O /tmp/chromedriver_linux64.zip "https://chromedriver.st
 && unzip /tmp/chromedriver_linux64.zip -d /usr/bin \
   && rm /tmp/chromedriver_linux64.zip \
   && chmod 755 /usr/bin/chromedriver
-
+RUN poetry config virtualenvs.create false
 #RUNNER SCRIPT
 ENV APPLICATIONTYPE=TRAVISCI
 WORKDIR /srv/www/
